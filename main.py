@@ -13,7 +13,8 @@ For each row:
       * Full HTML of the page
       * Any <iframe> src URLs
       * Optionally the HTML content of those iframe src URLs
-  - Currently knows about: BambooHR, Greenhouse, Paycor, TrineHire (easy to add more).
+  - Currently knows about: BambooHR, Greenhouse, Workable, JazzHR, Paycor, TrineHire
+    (easy to add more).
   - Detects "email to apply with PDFs" pattern.
 
 Outputs output.csv with columns:
@@ -64,6 +65,18 @@ JOB_BOARD_PATTERNS: Dict[str, re.Pattern] = {
     #      https://boards.greenhouse.io/company
     "greenhouse": re.compile(
         r'https?://[a-zA-Z0-9.-]*greenhouse\.io[^\s"\'<>]*',
+        re.IGNORECASE,
+    ),
+
+    # Workable – includes apply.workable.com and company subdomains
+    "workable": re.compile(
+        r'https?://[a-zA-Z0-9.-]*workable\.com[^\s"\'<>]*',
+        re.IGNORECASE,
+    ),
+
+    # JazzHR – primary application links are served from applytojob.com
+    "jazzhr": re.compile(
+        r'https?://[a-zA-Z0-9.-]*applytojob\.com[^\s"\'<>]*',
         re.IGNORECASE,
     ),
 
