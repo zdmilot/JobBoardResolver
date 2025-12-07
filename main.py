@@ -93,6 +93,12 @@ JOB_BOARD_PATTERNS: Dict[str, re.Pattern] = {
         re.IGNORECASE,
     ),
 
+    # Indeed – company pages and viewjob links
+    "indeed": re.compile(
+        r'https?://[a-zA-Z0-9.-]*indeed\.com[^\s"\'<>]*',
+        re.IGNORECASE,
+    ),
+
     # Add more here as needed:
     # "workday": re.compile(r'https?://[a-zA-Z0-9.-]*\.myworkdayjobs\.com[^\s"\'<>]*', re.IGNORECASE),
     # "lever": re.compile(r'https?://jobs\.lever\.co[^\s"\'<>]*', re.IGNORECASE),
